@@ -3,16 +3,12 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { CommentsModule } from './comments/comments.module';
 import { UsersModule } from './users/users.module';
-import { UsersController } from './users/users.controller';
-import { UsersService } from './users/users.service';
-import { CommentsController } from './comments/comments.controller';
-import { CommentsService } from './comments/comments.service';
 import { User } from './users/users.model';
 import { Comment } from './comments/comments.model';
 
 @Module({
-  controllers: [UsersController, CommentsController],
-  providers: [UsersService, CommentsService],
+  controllers: [],
+  providers: [],
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
