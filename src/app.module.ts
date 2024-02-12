@@ -1,11 +1,18 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
+import { CommentsModule } from './comments/comments.module';
+import { UsersModule } from './users/users.module';
+import { UsersController } from './users/users.controller';
+import { UsersService } from './users/users.service';
+import { CommentsController } from './comments/comments.controller';
+import { CommentsService } from './comments/comments.service';
+import { User } from './users/users.model';
+import { Comment } from './comments/comments.model';
 
 @Module({
-  controllers: [],
-  providers: [],
+  controllers: [UsersController, CommentsController],
+  providers: [UsersService, CommentsService],
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
@@ -17,9 +24,11 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [],
+      models: [User, Comment],
       autoLoadModels: true,
+      synchronize: true,
     }),
+    CommentsModule,
     UsersModule,
   ],
 })
