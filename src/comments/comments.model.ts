@@ -13,7 +13,8 @@ import { User } from 'src/users/users.model';
 interface CommentCreationAttrs {
   text: string;
   captcha: string;
-  password: string;
+  userId: number;
+  file: string;
 }
 
 @Table({ tableName: 'comments' })

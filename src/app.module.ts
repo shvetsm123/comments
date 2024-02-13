@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/users.model';
 import { Comment } from './comments/comments.model';
 import { AuthModule } from './auth/auth.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   controllers: [],
@@ -28,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
     CommentsModule,
     UsersModule,
     AuthModule,
+    FilesModule,
   ],
 })
 export class AppModule {}
