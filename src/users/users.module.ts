@@ -9,5 +9,6 @@ import { Comment } from 'src/comments/comments.model';
   controllers: [UsersController],
   providers: [UsersService],
   imports: [SequelizeModule.forFeature([User, Comment])],
+  exports: [UsersService],
 })
 export class UsersModule {}
