@@ -40,13 +40,13 @@ Install all packages
 
 OR 
 
-Run Docker file
+Run Docker file (POSTGRES_HOST=postgres)
 
 ```bash
   docker compose --file ./docker-compose-dev.yaml up --build
 ```
 
-Connect your Postgres 
+Connect your Postgres (POSTGRES_HOST=localhost)
 
 ```bash
   cd server/.env
