@@ -2,8 +2,6 @@ import {
   Body,
   Controller,
   Get,
-  HttpException,
-  HttpStatus,
   Post,
   Query,
   UploadedFile,
@@ -28,10 +26,10 @@ export class CommentsController {
   }
 
   @Get()
-  getAllComments(@Query() paginationDto?: PaginationDto) {
-    if (paginationDto && paginationDto.limit > 25) {
-      throw new HttpException('Limit must be <= 25', HttpStatus.BAD_REQUEST);
+  getAllComments(@Query() paginationDto: PaginationDto) {
+    if (paginationDto) {
+      return this.commentService.getAllComments(paginationDto);
     }
-    return this.commentService.getAllComments(paginationDto);
+    return this.commentService.getAllCommentsWithoutPagination();
   }
 }

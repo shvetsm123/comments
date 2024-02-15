@@ -1,4 +1,4 @@
 export class PaginationDto {
-  readonly page: number;
+  readonly offset: number = 0;
   readonly limit: number = 25;
 }

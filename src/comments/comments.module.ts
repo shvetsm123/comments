@@ -6,14 +6,16 @@ import { Comment } from './comments.model';
 import { User } from 'src/users/users.model';
 import { FilesModule } from 'src/files/files.module';
 import { AuthModule } from 'src/auth/auth.module';
+import { CommentsGateway } from './comments.gateway';
 
 @Module({
   controllers: [CommentsController],
-  providers: [CommentsService],
+  providers: [CommentsService, CommentsGateway],
   imports: [
     SequelizeModule.forFeature([Comment, User]),
     FilesModule,
     AuthModule,
   ],
+  exports: [CommentsGateway],
 })
 export class CommentsModule {}

@@ -22,13 +22,12 @@ export class CommentsService {
   }
 
   async getAllComments(paginationDto: PaginationDto): Promise<Comment[]> {
-    const { page, limit } = paginationDto;
-    const offset = (page - 1) * limit;
+    const comments = await this.commentRepository.findAll(paginationDto);
+    return comments;
+  }
 
-    const comments = await this.commentRepository.findAll({
-      offset,
-      limit,
-    });
+  async getAllCommentsWithoutPagination(): Promise<Comment[]> {
+    const comments = await this.commentRepository.findAll();
     return comments;
   }
 }

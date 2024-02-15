@@ -7,6 +7,7 @@ import { User } from './users/users.model';
 import { Comment } from './comments/comments.model';
 import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
+import { CommentsGateway } from './comments/comments.gateway';
 
 @Module({
   controllers: [],
@@ -30,6 +31,7 @@ import { FilesModule } from './files/files.module';
     UsersModule,
     AuthModule,
     FilesModule,
+    CommentsGateway,
   ],
 })
 export class AppModule {}
